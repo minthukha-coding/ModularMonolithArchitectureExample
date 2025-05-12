@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ProductModule.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductModule.Application.Interfaces
+namespace ProductModule.Application.Interfaces;
+
+public interface IProductService
 {
-    internal class IProductService
-    {
-    }
+    IEnumerable<Product> GetAll();
 }

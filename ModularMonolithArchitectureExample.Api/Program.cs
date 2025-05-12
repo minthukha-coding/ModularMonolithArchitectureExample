@@ -1,8 +1,15 @@
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using ProductModule.Api.Controllers;
+using ProductModule.Application.Interfaces;
+using ProductModule.Application.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddControllers()
+    .PartManager.ApplicationParts.Add(new AssemblyPart(typeof(ProductsController).Assembly));
 
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddScoped<IProductService, ProductService>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
