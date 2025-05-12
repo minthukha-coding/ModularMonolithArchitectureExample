@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using OrderModule.Application.Interfaces;
+using OrderModule.Application.Services;
 using ProductModule.Api.Controllers;
 using ProductModule.Application.Interfaces;
 using ProductModule.Application.Services;
@@ -9,6 +11,7 @@ builder.Services.AddControllers()
     .PartManager.ApplicationParts.Add(new AssemblyPart(typeof(ProductsController).Assembly));
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
